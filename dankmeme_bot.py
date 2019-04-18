@@ -16,12 +16,14 @@ subreddit = reddit.subreddit('dankmemes')
 print("")
 print("Bot running. Parsing posts...")
 print("")
+
+# Iterate through posts in hot section of subreddit. Only iterates limit number of times. 
 for submission in subreddit.hot(limit=5):
-    valid_types = (".jpg", ".png")
-    url_string = str(submission.url)
+    valid_types = (".jpg", ".png") 
+    url_string = str(submission.url) 
     
     if url_string.endswith(valid_types):
-        # Get file type. 
+        # Get file type as string. 
         file_type = url_string[-4:]
 
         # Print title and url of submission in console. 
