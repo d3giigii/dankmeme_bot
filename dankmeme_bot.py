@@ -9,7 +9,7 @@ import datetime
 # Path to save images to. 
 PATH = "E:\\Media\\Pictures\\Memes\\Dankmemes"
 
-# 
+# Get bot data and subreddit instance. 
 reddit = praw.Reddit('BOT')
 subreddit = reddit.subreddit('dankmemes')
 
