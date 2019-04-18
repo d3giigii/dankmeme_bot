@@ -1,0 +1,6 @@
+Bot should run until it reaches a post it has already seen. 
+    Add title and URL of each post to a file. If that combination already exists, stop. 
+        This log file should be in reverse chronological order i.e. latest first. 
+        Only works if parsing through posts in a chronological order. 
+
+Bot should not overwrite a file if it wants to save an image with the same name. 
