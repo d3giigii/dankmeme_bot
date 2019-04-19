@@ -41,6 +41,7 @@ for submission in subreddit.hot(limit=60):
         full_filename = os.path.join(PATH, title)
         full_filename = full_filename.replace("?","")
         full_filename = full_filename.replace("*","")
+        full_filename = full_filename.replace("/","")
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
 
         # Add title and url to log file. 
