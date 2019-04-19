@@ -14,7 +14,6 @@ config._DEFAULT_INTERPOLATION = configparser.ExtendedInterpolation()
 config.read('config.ini')
 
 # Path to save images to. 
-# PATH = "E:\\Media\\Pictures\\Memes\\Dankmemes"
 PATH = str(config.get('APPLICATION', 'path'))
 
 # Get bot data and subreddit instance. 
