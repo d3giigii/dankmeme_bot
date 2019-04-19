@@ -7,10 +7,6 @@ import time
 import datetime
 import re
 
-# Invalid characters
-invalid_chars = ("<", ">", ":", "\"", "\/", "\\", "|", "?", "*")
-
-
 # Path to save images to. 
 PATH = "E:\\Media\\Pictures\\Memes\\Dankmemes"
 
@@ -39,9 +35,15 @@ for submission in subreddit.hot(limit=60):
 
         # Save the file to given path. Delete special chars for Windows and Unix file names. 
         full_filename = os.path.join(PATH, title)
+        full_filename = full_filename.replace("<","")
+        full_filename = full_filename.replace(">","")
+        full_filename = full_filename.replace(":","")
+        full_filename = full_filename.replace("\"","")
+        full_filename = full_filename.replace("\/","")
+        full_filename = full_filename.replace("\\","")
+        full_filename = full_filename.replace("|","")
         full_filename = full_filename.replace("?","")
         full_filename = full_filename.replace("*","")
-        full_filename = full_filename.replace("/","")
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
 
         # Add title and url to log file. 
