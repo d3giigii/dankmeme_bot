@@ -22,7 +22,18 @@ print("")
 for submission in subreddit.hot(limit=60):
     valid_types = (".jpg", ".png") 
     url_string = str(submission.url) 
+    
+    # Remove special Windows characters from title of submission. 
     title = str(submission.title)
+    title = title.replace("<","")
+    title = title.replace(">","")
+    title = title.replace(":","")
+    title = title.replace("\"","")
+    title = title.replace("/","")
+    title = title.replace("\\","")
+    title = title.replace("|","")
+    title = title.replace("?","")
+    title = title.replace("*","")
 
     if url_string.endswith(valid_types):
         # Get file type as string. 
@@ -33,17 +44,8 @@ for submission in subreddit.hot(limit=60):
         print("URL  : " + submission.url)
         print("-------------------------------------------")
 
-        # Save the file to given path. Delete special chars for Windows and Unix file names. 
+        # Save the file to given path. 
         full_filename = os.path.join(PATH, title)
-        full_filename = full_filename.replace("<","")
-        full_filename = full_filename.replace(">","")
-        full_filename = full_filename.replace(":","")
-        full_filename = full_filename.replace("\"","")
-        full_filename = full_filename.replace("\/","")
-        full_filename = full_filename.replace("\\","")
-        full_filename = full_filename.replace("|","")
-        full_filename = full_filename.replace("?","")
-        full_filename = full_filename.replace("*","")
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
 
         # Add title and url to log file. 
