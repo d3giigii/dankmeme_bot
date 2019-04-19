@@ -4,3 +4,5 @@ Bot should run until it reaches a post it has already seen.
         Only works if parsing through posts in a chronological order. 
 
 Bot should not overwrite a file if it wants to save an image with the same name. 
+
+Bot should use a re.sub() to replace special chars instead of multiple .replace() calls. 

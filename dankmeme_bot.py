@@ -27,9 +27,6 @@ for submission in subreddit.hot(limit=60):
     valid_types = (".jpg", ".png") 
     url_string = str(submission.url) 
     title = str(submission.title)
-    safe_title = re.sub('\?', '', title)
-    safe_title = re.sub('*', '', title)
-    print(safe_title)
 
     if url_string.endswith(valid_types):
         # Get file type as string. 
@@ -41,7 +38,9 @@ for submission in subreddit.hot(limit=60):
         print("-------------------------------------------")
 
         # Save the file to given path. 
-        full_filename = re.sub('\?', '', os.path.join(PATH, title)) 
+        full_filename = os.path.join(PATH, title)
+        full_filename = full_filename.replace("?","")
+        full_filename = full_filename.replace("*","")
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
 
         # Add title and url to log file. 
