@@ -6,9 +6,16 @@ import os
 import time
 import datetime
 import re
+import configparser
+
+# Parse config file
+config = configparser.ConfigParser()
+config._DEFAULT_INTERPOLATION = configparser.ExtendedInterpolation()
+config.read('config.ini')
 
 # Path to save images to. 
-PATH = "E:\\Media\\Pictures\\Memes\\Dankmemes"
+# PATH = "E:\\Media\\Pictures\\Memes\\Dankmemes"
+PATH = str(config.get('APPLICATION', 'path'))
 
 # Get bot data and subreddit instance. 
 reddit = praw.Reddit('BOT')
@@ -43,7 +50,7 @@ for submission in subreddit.hot(limit=60):
         print("Title: " + title)
         print("URL  : " + submission.url)
         print("-------------------------------------------")
-    
+
         # Save the file to given path. 
         full_filename = os.path.join(PATH, title)
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
