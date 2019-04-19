@@ -37,7 +37,7 @@ for submission in subreddit.hot(limit=60):
         print("URL  : " + submission.url)
         print("-------------------------------------------")
 
-        # Save the file to given path. 
+        # Save the file to given path. Delete special chars for Windows and Unix file names. 
         full_filename = os.path.join(PATH, title)
         full_filename = full_filename.replace("?","")
         full_filename = full_filename.replace("*","")
