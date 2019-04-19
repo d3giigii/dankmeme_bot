@@ -43,7 +43,7 @@ for submission in subreddit.hot(limit=60):
         print("Title: " + title)
         print("URL  : " + submission.url)
         print("-------------------------------------------")
-
+    
         # Save the file to given path. 
         full_filename = os.path.join(PATH, title)
         urllib.request.urlretrieve(submission.url, full_filename + file_type)
