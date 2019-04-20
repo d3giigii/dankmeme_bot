@@ -18,7 +18,8 @@ PATH = str(config.get('APPLICATION', 'path'))
 
 # Get bot data and subreddit instance. 
 reddit = praw.Reddit('BOT')
-subreddit = reddit.subreddit('dankmemes')
+subreddit_str = str(input("Enter subreddit: "))
+subreddit = reddit.subreddit(subreddit_str)
 
 print("")
 print("Bot running. Parsing posts...")
